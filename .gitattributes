@@ -1,0 +1,13 @@
+# Flask/Jinja templates are server-rendered markup, not the primary codebase.
+flask_app/templates/** linguist-vendored
+
+# Stylesheets are assets, not application logic.
+flask_app/static/css/** linguist-vendored
+
+# Backend Python should not dominate frontend project stats.
+*.py linguist-vendored
+Procfile linguist-vendored
+
+# Frontend source is React-based.
+flask_app/static/js/** linguist-language=React
+client/** linguist-language=React
