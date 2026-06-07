@@ -1,11 +1,7 @@
 from flask_app.config.mysqlconnection import connectToMySQL
-import re
-from flask import flash
-from flask_app import app
-
-EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$') 
 
 db = "frontend_tutor"
+
 
 class Video:
     def __init__(self, data):
@@ -17,7 +13,6 @@ class Video:
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
 
-    
     @classmethod
     def get_all(cls):
         query = 'SELECT * FROM videos'
@@ -29,8 +24,3 @@ class Video:
         query = 'SELECT * FROM videos WHERE id = %(id)s;'
         result = connectToMySQL(db).query_db(query, data)
         return cls(result[0])
-    
-
-
-
-    
